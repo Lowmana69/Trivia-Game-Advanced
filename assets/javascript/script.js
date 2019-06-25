@@ -5,7 +5,7 @@ $("#start-button").click(function() {
 })
 
 function jeopardy() { 
-    var audio = new Audio("../audio/Jeopardy-theme-song.mp3");
+    var audio = new Audio("src='../audio/Jeopardy-theme-song.mp3'");
     audio.play();    
 }
 
@@ -59,7 +59,7 @@ var questionsArray = [{
     image:"../images/Surveillance Drone.gif" // Add images from image file
 },{
     question: "What brand is Nick's Water Bottle?",
-    answers: ['Contingo', 'Mira', 'S'well, 'Yeti', 'Hydro Flask'],
+    answers: ['Contingo', 'Mira', 'S\'well', 'Yeti', 'Hydro Flask'],
     correctAnswer:'Hydro Flask',
     image:"../images/Hydro Flask.gif" // Add images from image file
 },{
@@ -143,7 +143,7 @@ var game = {
         $("#subwrapper").append("<button id='reset'>PLAY AGAIN?</button>");
 
     },
-    clicked: function() {
+    clicked: function(e) {
         clearInterval(timer);
         if($(e.target).data("name")==questionsArray[game.currentQuestion].correctAnswer) {
             game.answeredCorrect();
